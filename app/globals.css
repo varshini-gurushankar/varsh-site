@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #fafafa;
+  --bg-secondary: #ededed;
+  --bg-window: #ffffff;
+  --bg-titlebar: #f4f4f5;
+  --text-primary: #18181b;
+  --text-muted: #6f6f78;
+  --accent: #7c3aed;
+  --accent-soft: rgba(124, 58, 237, 0.1);
+  --border: #e4e4e7;
+  --shadow-window: 0 16px 48px -16px rgba(24, 24, 27, 0.28);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #101013;
+  --bg-secondary: #1a1a1f;
+  --bg-window: #1c1c21;
+  --bg-titlebar: #26262c;
+  --text-primary: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --accent: #a78bfa;
+  --accent-soft: rgba(167, 139, 250, 0.14);
+  --border: #2e2e35;
+  --shadow-window: 0 16px 48px -16px rgba(0, 0, 0, 0.65);
+}
+
+@theme inline {
+  --color-canvas: var(--bg-primary);
+  --color-canvas-2: var(--bg-secondary);
+  --color-window: var(--bg-window);
+  --color-titlebar: var(--bg-titlebar);
+  --color-ink: var(--text-primary);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--border);
+  --shadow-window: var(--shadow-window);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
