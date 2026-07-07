@@ -21,7 +21,7 @@ const NAV: { section: SectionId; icon: LucideIcon }[] = [
 
 export default function IconNav() {
   return (
-    <nav aria-label="Sections" className="flex flex-wrap justify-center gap-5">
+    <nav aria-label="Sections" className="flex flex-wrap justify-center gap-6">
       {NAV.map(({ section, icon }) => (
         <IconButton key={section} section={section} icon={icon} />
       ))}

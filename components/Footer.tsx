@@ -2,7 +2,7 @@ import { siteContent } from "@/lib/content";
 
 export default function Footer() {
   return (
-    <footer className="absolute inset-x-0 bottom-0 z-0 flex items-center justify-center gap-4 px-4 py-3 font-mono text-xs text-muted">
+    <footer className="absolute inset-x-0 bottom-0 z-0 flex items-center justify-center gap-4 px-4 py-4 font-mono text-xs text-ink/70">
       {siteContent.socials.map((social) => (
         <a
           key={social.platform}

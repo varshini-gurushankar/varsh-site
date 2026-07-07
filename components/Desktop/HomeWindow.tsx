@@ -7,24 +7,22 @@ export default function HomeWindow() {
   return (
     <section
       aria-label="home window"
-      className="w-full max-w-xl overflow-hidden rounded-xl border border-line bg-window shadow-window"
+      className="w-full max-w-3xl overflow-hidden rounded-2xl border border-line bg-window shadow-window"
     >
-      <div className="flex items-center justify-between border-b border-line bg-titlebar px-3 py-2 select-none">
-        <span className="font-mono text-xs lowercase tracking-widest text-muted">
+      <div className="flex items-center justify-between bg-titlebar px-4 py-2.5 select-none">
+        <span className="font-mono text-xs lowercase tracking-widest text-titlebar-text">
           home
         </span>
-        <span aria-hidden className="flex gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full border border-line" />
-          <span className="h-2.5 w-2.5 rounded-full bg-accent-soft" />
-          <span className="h-2.5 w-2.5 rounded-full bg-accent" />
-        </span>
+        <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-accent" />
       </div>
-      <div className="flex flex-col items-center gap-8 px-6 py-10 text-center sm:px-10">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight">
-            {siteContent.name}
+      <div className="flex flex-col items-center gap-10 px-6 py-14 text-center sm:px-12">
+        <div className="space-y-3">
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            hi! i&apos;m <span className="text-accent">{siteContent.name}</span>
           </h1>
-          <p className="font-mono text-sm text-muted">{siteContent.tagline}</p>
+          <p className="font-mono text-sm text-muted sm:text-base">
+            {siteContent.tagline}
+          </p>
         </div>
         <IconNav />
       </div>

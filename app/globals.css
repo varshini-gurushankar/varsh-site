@@ -1,43 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #fafafa;
-  --bg-secondary: #ededed;
-  --bg-window: #ffffff;
-  --bg-titlebar: #f4f4f5;
-  --text-primary: #18181b;
-  --text-muted: #6f6f78;
-  --accent: #7c3aed;
-  --accent-soft: rgba(124, 58, 237, 0.1);
-  --border: #e4e4e7;
-  --shadow-window: 0 16px 48px -16px rgba(24, 24, 27, 0.28);
+  --sky-top: #a7b9f2;
+  --sky-bottom: #fdf3e4;
+  --water: #cdc2ee;
+  --bg-window: #fffdf8;
+  --bg-titlebar: #403d47;
+  --titlebar-text: #f7f3ea;
+  --text-primary: #3a3742;
+  --text-muted: #8b8595;
+  --accent: #ef7d54;
+  --accent-soft: rgba(239, 125, 84, 0.14);
+  --border: #e8e2d9;
+  --shadow-window: 0 18px 44px -14px rgba(64, 61, 71, 0.35);
+  --stars-opacity: 0;
 }
 
 [data-theme="dark"] {
-  --bg-primary: #101013;
-  --bg-secondary: #1a1a1f;
-  --bg-window: #1c1c21;
-  --bg-titlebar: #26262c;
-  --text-primary: #f4f4f5;
-  --text-muted: #a1a1aa;
-  --accent: #a78bfa;
-  --accent-soft: rgba(167, 139, 250, 0.14);
-  --border: #2e2e35;
-  --shadow-window: 0 16px 48px -16px rgba(0, 0, 0, 0.65);
+  --sky-top: #1b2044;
+  --sky-bottom: #3a3564;
+  --water: #2e2a56;
+  --bg-window: #272438;
+  --bg-titlebar: #171523;
+  --titlebar-text: #ece7f2;
+  --text-primary: #f0ecf5;
+  --text-muted: #a49fb5;
+  --accent: #f79a72;
+  --accent-soft: rgba(247, 154, 114, 0.16);
+  --border: #3c3854;
+  --shadow-window: 0 18px 44px -14px rgba(0, 0, 0, 0.6);
+  --stars-opacity: 0.5;
 }
 
 @theme inline {
-  --color-canvas: var(--bg-primary);
-  --color-canvas-2: var(--bg-secondary);
+  --color-sky-top: var(--sky-top);
+  --color-sky-bottom: var(--sky-bottom);
+  --color-water: var(--water);
   --color-window: var(--bg-window);
   --color-titlebar: var(--bg-titlebar);
+  --color-titlebar-text: var(--titlebar-text);
   --color-ink: var(--text-primary);
   --color-muted: var(--text-muted);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-line: var(--border);
   --shadow-window: var(--shadow-window);
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-body);
   --font-mono: var(--font-plex-mono);
 }
 
@@ -47,9 +55,9 @@ body {
 }
 
 body {
-  background: var(--bg-primary);
+  background: var(--sky-bottom);
   color: var(--text-primary);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 
 :focus-visible {

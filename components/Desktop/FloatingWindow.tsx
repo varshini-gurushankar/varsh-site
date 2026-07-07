@@ -31,7 +31,7 @@ export default function FloatingWindow({
     <motion.div
       role="dialog"
       aria-label={`${id} window`}
-      className="absolute w-[min(560px,calc(100vw-24px))] overflow-hidden rounded-xl border border-line bg-window shadow-window"
+      className="absolute w-[min(640px,calc(100vw-24px))] overflow-hidden rounded-2xl border border-line bg-window shadow-window"
       style={{ left: x, top: y, zIndex }}
       drag={!isMobile}
       dragControls={dragControls}
@@ -49,26 +49,26 @@ export default function FloatingWindow({
       }}
     >
       <div
-        className="flex touch-none select-none items-center justify-between border-b border-line bg-titlebar px-3 py-2 cursor-grab active:cursor-grabbing"
+        className="flex touch-none select-none items-center justify-between bg-titlebar px-4 py-2.5 cursor-grab active:cursor-grabbing"
         onPointerDown={(e) => {
           // don't start a drag from the close button, or its click won't fire
           if (isMobile || (e.target as HTMLElement).closest("button")) return;
           dragControls.start(e);
         }}
       >
-        <span className="font-mono text-xs lowercase tracking-widest text-muted">
+        <span className="font-mono text-xs lowercase tracking-widest text-titlebar-text">
           {id}
         </span>
         <button
           type="button"
           aria-label={`Close ${id} window`}
           onClick={() => closeWindow(id)}
-          className="flex h-6 w-6 items-center justify-center rounded-md text-muted transition-colors hover:bg-accent-soft hover:text-accent"
+          className="flex h-6 w-6 items-center justify-center rounded-md text-titlebar-text transition-colors hover:bg-accent hover:text-titlebar"
         >
-          <X size={14} strokeWidth={2} />
+          <X size={14} strokeWidth={2.5} />
         </button>
       </div>
-      <div className="max-h-[min(60vh,480px)] overflow-y-auto p-5">
+      <div className="max-h-[min(60vh,480px)] overflow-y-auto p-6">
         {children}
       </div>
     </motion.div>

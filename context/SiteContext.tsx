@@ -40,7 +40,7 @@ interface SiteContextValue {
 
 const SiteContext = createContext<SiteContextValue | null>(null);
 
-const WINDOW_WIDTH = 560;
+const WINDOW_WIDTH = 640;
 
 function spawnPosition(spawnIndex: number): { x: number; y: number } {
   const vw = window.innerWidth;

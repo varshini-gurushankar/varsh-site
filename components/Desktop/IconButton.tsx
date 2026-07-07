@@ -17,14 +17,14 @@ export default function IconButton({ section, icon: Icon }: IconButtonProps) {
       type="button"
       aria-label={`Open ${section} window`}
       onClick={() => openWindow(section)}
-      whileHover={{ scale: 1.06 }}
-      whileTap={{ scale: 0.94 }}
-      className="group flex flex-col items-center gap-1.5"
+      whileHover={{ scale: 1.08, rotate: -3 }}
+      whileTap={{ scale: 0.92 }}
+      className="group flex flex-col items-center gap-2"
     >
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-window text-ink transition-colors group-hover:border-accent group-hover:bg-accent-soft group-hover:text-accent">
-        <Icon size={20} strokeWidth={1.75} />
+      <span className="flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-line bg-window text-ink transition-colors group-hover:border-accent group-hover:bg-accent-soft group-hover:text-accent">
+        <Icon size={26} strokeWidth={2} />
       </span>
-      <span className="font-mono text-[11px] lowercase tracking-wide text-muted transition-colors group-hover:text-accent">
+      <span className="font-mono text-xs lowercase tracking-wide text-muted transition-colors group-hover:text-accent">
         {section}
       </span>
     </motion.button>
