@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Nunito } from "next/font/google";
+import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import { siteContent } from "@/lib/content";
 import "./globals.css";
 
-const nunito = Nunito({
+const manrope = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -32,7 +31,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${nunito.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${manrope.variable} ${plexMono.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
