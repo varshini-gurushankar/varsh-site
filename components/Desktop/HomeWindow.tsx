@@ -7,15 +7,19 @@ export default function HomeWindow() {
   return (
     <section
       aria-label="home window"
-      className="w-full max-w-3xl overflow-hidden rounded-2xl border border-line bg-window shadow-window"
+      className="w-full max-w-4xl overflow-hidden rounded-2xl border border-line bg-window shadow-window"
     >
       <div className="flex items-center justify-between bg-titlebar px-4 py-2.5 select-none">
         <span className="font-mono text-xs lowercase tracking-widest text-titlebar-text">
           home
         </span>
-        <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-accent" />
+        <span aria-hidden className="flex gap-1.5">
+          <span className="h-3 w-3 rounded-full bg-[#ec6a5e]" />
+          <span className="h-3 w-3 rounded-full bg-[#f5bf4f]" />
+          <span className="h-3 w-3 rounded-full bg-[#61c554]" />
+        </span>
       </div>
-      <div className="flex flex-col items-center gap-10 px-6 py-14 text-center sm:px-12">
+      <div className="flex flex-col items-center gap-10 px-6 py-16 text-center sm:px-12 sm:py-20">
         <div className="space-y-3">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             hi! i&apos;m <span className="text-accent">{siteContent.name}</span>
