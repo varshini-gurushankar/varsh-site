@@ -12,6 +12,8 @@ interface FloatingWindowProps {
   y: number;
   zIndex: number;
   dragConstraints: RefObject<HTMLDivElement | null>;
+  /** Taller content area for windows with more to scroll through. */
+  tall?: boolean;
   children: ReactNode;
 }
 
@@ -21,9 +23,10 @@ export default function FloatingWindow({
   y,
   zIndex,
   dragConstraints,
+  tall = false,
   children,
 }: FloatingWindowProps) {
-  const { closeWindow, bringToFront } = useSite();
+  const { closeWindow, bringToFront, playClose } = useSite();
   const dragControls = useDragControls();
   const isMobile = useIsMobile();
 
@@ -45,7 +48,10 @@ export default function FloatingWindow({
       transition={{ duration: 0.18, ease: "easeOut" }}
       onPointerDown={() => bringToFront(id)}
       onKeyDown={(e) => {
-        if (e.key === "Escape") closeWindow(id);
+        if (e.key === "Escape") {
+          playClose();
+          closeWindow(id);
+        }
       }}
     >
       <div
@@ -62,13 +68,20 @@ export default function FloatingWindow({
         <button
           type="button"
           aria-label={`Close ${id} window`}
-          onClick={() => closeWindow(id)}
+          onClick={() => {
+            playClose();
+            closeWindow(id);
+          }}
           className="flex h-6 w-6 items-center justify-center rounded-md text-titlebar-text transition-colors hover:bg-accent hover:text-titlebar"
         >
           <X size={14} strokeWidth={2.5} />
         </button>
       </div>
-      <div className="max-h-[min(60vh,480px)] overflow-y-auto p-6">
+      <div
+        className={`overflow-y-auto p-6 ${
+          tall ? "max-h-[min(78vh,680px)]" : "max-h-[min(60vh,480px)]"
+        }`}
+      >
         {children}
       </div>
     </motion.div>

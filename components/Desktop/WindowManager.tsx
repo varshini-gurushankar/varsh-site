@@ -35,6 +35,7 @@ export default function WindowManager({
           y={w.y}
           zIndex={w.zIndex}
           dragConstraints={constraintsRef}
+          tall={w.id === "about"}
         >
           {PANELS[w.id]}
         </FloatingWindow>

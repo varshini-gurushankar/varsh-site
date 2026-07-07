@@ -15,6 +15,9 @@
   --shadow-window: 0 3px 6px -2px rgba(64, 61, 71, 0.2),
     0 18px 32px -10px rgba(64, 61, 71, 0.35),
     0 44px 80px -18px rgba(64, 61, 71, 0.42);
+  --shadow-photo: 0 2px 4px -1px rgba(64, 61, 71, 0.18),
+    0 10px 18px -6px rgba(64, 61, 71, 0.3),
+    0 22px 36px -12px rgba(64, 61, 71, 0.28);
   --stars-opacity: 0;
 }
 
@@ -33,6 +36,9 @@
   --shadow-window: 0 3px 6px -2px rgba(0, 0, 0, 0.4),
     0 18px 32px -10px rgba(0, 0, 0, 0.55),
     0 44px 80px -18px rgba(0, 0, 0, 0.65);
+  --shadow-photo: 0 2px 4px -1px rgba(0, 0, 0, 0.35),
+    0 10px 18px -6px rgba(0, 0, 0, 0.5),
+    0 22px 36px -12px rgba(0, 0, 0, 0.45);
   --stars-opacity: 0.5;
 }
 
@@ -49,6 +55,7 @@
   --color-accent-soft: var(--accent-soft);
   --color-line: var(--border);
   --shadow-window: var(--shadow-window);
+  --shadow-photo: var(--shadow-photo);
   --font-sans: var(--font-body);
   --font-mono: var(--font-plex-mono);
 }

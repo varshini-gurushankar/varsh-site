@@ -9,6 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import useSound from "use-sound";
 
 export type SectionId = "about" | "experience" | "links" | "contact" | "extras";
 
@@ -32,6 +33,12 @@ type Theme = "light" | "dark";
 interface SiteContextValue {
   theme: Theme;
   toggleTheme: () => void;
+  soundEnabled: boolean;
+  toggleSound: () => void;
+  playClick: () => void;
+  playClose: () => void;
+  playSparkleDay: () => void;
+  playSparkleNight: () => void;
   openWindows: OpenWindow[];
   openWindow: (id: SectionId) => void;
   closeWindow: (id: SectionId) => void;
@@ -60,9 +67,27 @@ function spawnPosition(spawnIndex: number): { x: number; y: number } {
 
 export function SiteProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
+  const [soundEnabled, setSoundEnabled] = useState(true);
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const zCounter = useRef(10);
   const spawnCounter = useRef(0);
+
+  const [playClick] = useSound("/sounds/ui-click.wav", {
+    volume: 0.4,
+    soundEnabled,
+  });
+  const [playClose] = useSound("/sounds/ui-close.wav", {
+    volume: 0.4,
+    soundEnabled,
+  });
+  const [playSparkleDay] = useSound("/sounds/sparkle-day.wav", {
+    volume: 0.35,
+    soundEnabled,
+  });
+  const [playSparkleNight] = useSound("/sounds/sparkle-night.wav", {
+    volume: 0.35,
+    soundEnabled,
+  });
 
   // Sync with the theme the no-flash script set on <html> before hydration.
   useEffect(() => {
@@ -70,6 +95,31 @@ export function SiteProvider({ children }: { children: ReactNode }) {
       setTheme("dark");
     }
   }, []);
+
+  // Restore the saved mute preference after hydration.
+  useEffect(() => {
+    try {
+      if (localStorage.getItem("sound") === "off") {
+        setSoundEnabled(false);
+      }
+    } catch {
+      // localStorage unavailable — default to sound on
+    }
+  }, []);
+
+  const toggleSound = useCallback(() => {
+    setSoundEnabled((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem("sound", next ? "on" : "off");
+      } catch {
+        // localStorage unavailable (private mode) — choice just won't persist
+      }
+      // audible confirmation when unmuting (playClick is muted while prev=true → next=false)
+      if (next) playClick({ forceSoundEnabled: true });
+      return next;
+    });
+  }, [playClick]);
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => {
@@ -120,6 +170,12 @@ export function SiteProvider({ children }: { children: ReactNode }) {
       value={{
         theme,
         toggleTheme,
+        soundEnabled,
+        toggleSound,
+        playClick,
+        playClose,
+        playSparkleDay,
+        playSparkleNight,
         openWindows,
         openWindow,
         closeWindow,

@@ -20,13 +20,15 @@ export default function HomeWindow() {
         </span>
       </div>
       <div className="flex flex-col items-center justify-center gap-12 px-6 py-16 text-center sm:min-h-[480px] sm:px-12">
-        <div className="space-y-3">
+        <div className="space-y-3 text-left">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             hi! i&apos;m <span className="text-accent">{siteContent.name}</span>
           </h1>
-          <p className="font-mono text-sm text-muted sm:text-base">
-            {siteContent.tagline}
-          </p>
+          <div className="space-y-2 text-left font-mono text-sm tracking-wide text-muted sm:text-base">
+            {siteContent.tagline.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
         </div>
         <IconNav />
       </div>

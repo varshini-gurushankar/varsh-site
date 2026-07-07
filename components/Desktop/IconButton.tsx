@@ -10,13 +10,16 @@ interface IconButtonProps {
 }
 
 export default function IconButton({ section, icon: Icon }: IconButtonProps) {
-  const { openWindow } = useSite();
+  const { openWindow, playClick } = useSite();
 
   return (
     <motion.button
       type="button"
       aria-label={`Open ${section} window`}
-      onClick={() => openWindow(section)}
+      onClick={() => {
+        playClick();
+        openWindow(section);
+      }}
       whileHover={{ scale: 1.08, rotate: -3 }}
       whileTap={{ scale: 0.92 }}
       className="group flex flex-col items-center gap-2"

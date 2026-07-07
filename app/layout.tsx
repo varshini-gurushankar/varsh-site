@@ -16,7 +16,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: `${siteContent.name} — portfolio`,
-  description: siteContent.tagline,
+  description: siteContent.tagline.join(" "),
 };
 
 // Set the theme before first paint so there's no light-mode flash.

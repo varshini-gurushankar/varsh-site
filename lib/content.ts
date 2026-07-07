@@ -24,12 +24,38 @@ export interface SocialItem {
   url: string;
 }
 
+export interface AboutSection {
+  text: string;
+  /** Path under /public, e.g. "/images/robotics.jpg". Leave undefined to show a placeholder box. */
+  image?: string;
+  imageAlt?: string;
+}
+
 export const siteContent = {
-  name: "Your Name",
-  tagline: "designer · developer · placeholder",
+  name: "varshini",
+  tagline: [
+    "i'm a software engineer + product builder.",
+    "prev working at a startup and doing research with ML systems at UC Davis.",
+    "reach me at vgurushankar@ucsd.edu",
+  ],
   about: {
-    bio: "This is placeholder bio copy. Write a few sentences about who you are, what you care about, and what you're working on right now. Edit everything in lib/content.ts.",
-    photo: "/images/you.png",
+    sections: [
+      {
+        text: "i was born in india and grew up in san diego, ca for most of my life. i was a curious child, and spent a lot of my childhood building things, like dolls out of toliet paper rolls to keep me entertained .",
+        image: "/images/toiletpaperdolls.jpg",
+        imageAlt: "dolls i made out of toilet paper rolls as a kid",
+      },
+      {
+        text: "during my time at UC san diego, joining clubs like the AI student collective and having the opportunity to go to conferences and meet ambitious and passionate people like mark zuckerburg solidified that tech, specifically the intersection of swe + product is something I want to do.",
+        image: "/images/stripesessions-crop.jpg",
+        imageAlt: "stripe sessions conference",
+      },
+      {
+        text: "apart from work i love going to the beach, rating different food spots on beli, and traveling with friends and family.",
+        image: "/images/varshinibeach-crop.jpg",
+        imageAlt: "me at the beach",
+      },
+    ] as AboutSection[],
   },
   experience: [
     {
