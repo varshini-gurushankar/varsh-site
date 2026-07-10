@@ -10,14 +10,15 @@ interface IconButtonProps {
 }
 
 export default function IconButton({ section, icon: Icon }: IconButtonProps) {
-  const { openWindow, playClick } = useSite();
+  const { openWindow, playClick, playBubble } = useSite();
 
   return (
     <motion.button
       type="button"
       aria-label={`Open ${section} window`}
       onClick={() => {
-        playClick();
+        if (section === "extras") playBubble();
+        else playClick();
         openWindow(section);
       }}
       whileHover={{ scale: 1.08, rotate: -3 }}

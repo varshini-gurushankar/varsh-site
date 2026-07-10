@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import type { ReactNode, RefObject } from "react";
 import { useSite, type SectionId } from "@/context/SiteContext";
 import AboutPanel from "@/components/Panels/AboutPanel";
+import BooksPanel from "@/components/Panels/BooksPanel";
 import ContactPanel from "@/components/Panels/ContactPanel";
 import ExperiencePanel from "@/components/Panels/ExperiencePanel";
 import ExtrasPanel from "@/components/Panels/ExtrasPanel";
@@ -16,6 +17,7 @@ const PANELS: Record<SectionId, ReactNode> = {
   links: <LinksPanel />,
   contact: <ContactPanel />,
   extras: <ExtrasPanel />,
+  books: <BooksPanel />,
 };
 
 export default function WindowManager({
@@ -35,7 +37,7 @@ export default function WindowManager({
           y={w.y}
           zIndex={w.zIndex}
           dragConstraints={constraintsRef}
-          tall={w.id === "about"}
+          tall={w.id === "about" || w.id === "books"}
         >
           {PANELS[w.id]}
         </FloatingWindow>

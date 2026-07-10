@@ -5,7 +5,6 @@ import { useRef } from "react";
 import { SiteProvider } from "@/context/SiteContext";
 import SoundToggle from "@/components/Controls/SoundToggle";
 import ThemeToggle from "@/components/Controls/ThemeToggle";
-import Footer from "@/components/Footer";
 import DesktopBackground from "./DesktopBackground";
 import HomeWindow from "./HomeWindow";
 import WindowManager from "./WindowManager";
@@ -27,7 +26,6 @@ export default function Desktop() {
             <HomeWindow />
           </main>
           <WindowManager constraintsRef={constraintsRef} />
-          <Footer />
         </div>
       </MotionConfig>
     </SiteProvider>

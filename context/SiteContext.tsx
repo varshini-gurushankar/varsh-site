@@ -11,7 +11,13 @@ import {
 } from "react";
 import useSound from "use-sound";
 
-export type SectionId = "about" | "experience" | "links" | "contact" | "extras";
+export type SectionId =
+  | "about"
+  | "experience"
+  | "links"
+  | "contact"
+  | "extras"
+  | "books";
 
 export const SECTIONS: SectionId[] = [
   "about",
@@ -37,6 +43,7 @@ interface SiteContextValue {
   toggleSound: () => void;
   playClick: () => void;
   playClose: () => void;
+  playBubble: () => void;
   playSparkleDay: () => void;
   playSparkleNight: () => void;
   openWindows: OpenWindow[];
@@ -78,6 +85,10 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   });
   const [playClose] = useSound("/sounds/ui-close.wav", {
     volume: 0.4,
+    soundEnabled,
+  });
+  const [playBubble] = useSound("/sounds/bubble.mp3", {
+    volume: 0.45,
     soundEnabled,
   });
   const [playSparkleDay] = useSound("/sounds/sparkle-day.wav", {
@@ -174,6 +185,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
         toggleSound,
         playClick,
         playClose,
+        playBubble,
         playSparkleDay,
         playSparkleNight,
         openWindows,
