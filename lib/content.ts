@@ -5,6 +5,8 @@ export interface ExperienceItem {
   company: string;
   period: string;
   description: string;
+  /** One-or-two-line version used on the journey timeline. */
+  summary: string;
 }
 
 export interface LinkItem {
@@ -71,6 +73,8 @@ export const siteContent = {
       period: "July 2025 — September 2025",
       description:
         "I built a production agentic chatbot that combines LangGraph, MCP, and GPT-4 to help teams prep pitches in 30 minutes instead of 3+ hours. Along the way, I designed an eval framework that catches and corrects AI hallucinations automatically, pushing task success up to 90%, and built out a fast, async API layer (sub-220ms responses, 99.5% uptime) to handle it all at scale; all containerized with Docker so new devs can be up and running in under 5 minutes.",
+      summary:
+        "Shipped a production agentic chatbot (LangGraph + MCP + GPT-4) with an eval framework that pushed task success to 90%.",
     },
     {
       role: "Software Developer Intern",
@@ -78,6 +82,8 @@ export const siteContent = {
       period: "October 2025 — January 2026",
       description:
         "I architected scalable RESTful microservices on Google Cloud Run using Python and FastAPI, letting 1,000+ users pull personalized data without any latency drop, cutting retrieval time by 40%. On the frontend, I built reusable React + TypeScript components wired into those APIs to power personalized recommendations, using strict typing across 10+ shared components to cut prop-related bugs in half. I also stayed closely involved in the team's process, joining daily standups and code reviews to help keep quality high and best practices consistent.",
+      summary:
+        "Architected RESTful microservices on Google Cloud Run and reusable React + TypeScript components serving 1,000+ users.",
     },
     {
       role: "Machine Learning Intern",
@@ -85,6 +91,8 @@ export const siteContent = {
       period: "January 2025 — Present",
       description:
         "I engineered an automated data pipeline with FreeSurfer and Python to parallelize brain scan segmentation across 100+ scans, optimizing file I/O to slash processing time from 8 hours down to 45 minutes. I also designed and ran controlled ML experiments on multi-region neuroimaging data, building feature extraction pipelines and cross-validation frameworks to test how well models generalized across different patient cohorts. To close the loop, I built a statistical data platform with Pandas and Scikit-learn that processed 200+ patient records through automated reporting pipelines and RESTful APIs, cutting manual analysis time by 70%.",
+      summary:
+        "Automated brain-scan segmentation across 100+ scans (8 hours → 45 minutes) and ran ML experiments on neuroimaging data.",
     },
     {
       role: "Full Stack Developer Intern",
@@ -92,6 +100,8 @@ export const siteContent = {
       period: "July 2024 — January 2025",
       description:
         "I developed 6 responsive web pages using reusable React and Node.js components, cutting code redundancy by 30% and making the system easier to maintain and scale long-term. I also designed and optimized a relational SQL database schema with 10+ tables, writing complex queries for efficient retrieval and enforcing referential integrity to keep data consistent across the system. To protect all of it, I built automated Jest testing pipelines with 50+ unit tests reaching 95% coverage, catching regressions early and shipping with zero critical production issues.",
+      summary:
+        "Built 6 responsive pages with reusable React components, a 10+ table SQL schema, and Jest pipelines at 95% coverage.",
     },
   ] satisfies ExperienceItem[],
   links: [
