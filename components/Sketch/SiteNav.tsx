@@ -1,4 +1,5 @@
 import { siteContent } from "@/lib/content";
+import { SoundToggle } from "./SoundContext";
 import { Squiggle } from "./doodles";
 
 const navLinks = [
@@ -24,6 +25,7 @@ export default function SiteNav() {
             {link.label}
           </a>
         ))}
+        <SoundToggle />
       </nav>
     </header>
   );

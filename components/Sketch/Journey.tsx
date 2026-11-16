@@ -8,6 +8,7 @@ import {
   useScroll,
 } from "framer-motion";
 import { siteContent, type ExperienceItem } from "@/lib/content";
+import { useSiteSound } from "./SoundContext";
 import { BadgeSticker, HexSticker, LaptopDoodle, StarSticker } from "./doodles";
 
 /* Timeline runs oldest → newest; stickers stack in the same order,
@@ -146,6 +147,8 @@ function Sticker({ def }: { def: StickerDef }) {
 export default function Journey() {
   const listRef = useRef<HTMLOListElement>(null);
   const [stuckCount, setStuckCount] = useState(0);
+  const prevCount = useRef<number | null>(null);
+  const { playBubble, playClose, playSparkle } = useSiteSound();
 
   const { scrollYProgress } = useScroll({
     target: listRef,
@@ -154,7 +157,20 @@ export default function Journey() {
 
   useMotionValueEvent(scrollYProgress, "change", (p) => {
     const n = entries.length;
-    setStuckCount(p <= 0.001 ? 0 : Math.min(n, Math.floor(p * n) + 1));
+    const next = p <= 0.001 ? 0 : Math.min(n, Math.floor(p * n) + 1);
+    const prev = prevCount.current;
+    // Skip the very first reading so loading mid-page stays quiet.
+    if (prev !== null && next !== prev) {
+      if (next > prev) {
+        playBubble();
+        // little flourish when the collection completes
+        if (next === n) playSparkle();
+      } else {
+        playClose();
+      }
+    }
+    prevCount.current = next;
+    setStuckCount(next);
   });
 
   return (

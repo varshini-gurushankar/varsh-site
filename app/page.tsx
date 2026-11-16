@@ -4,16 +4,19 @@ import Hero from "@/components/Sketch/Hero";
 import Journey from "@/components/Sketch/Journey";
 import SiteFooter from "@/components/Sketch/SiteFooter";
 import SiteNav from "@/components/Sketch/SiteNav";
+import { SoundProvider } from "@/components/Sketch/SoundContext";
 
 export default function Page() {
   return (
-    <main id="top">
-      <SiteNav />
-      <Hero />
-      <Journey />
-      <About />
-      <Currently />
-      <SiteFooter />
-    </main>
+    <SoundProvider>
+      <main id="top">
+        <SiteNav />
+        <Hero />
+        <Journey />
+        <About />
+        <Currently />
+        <SiteFooter />
+      </main>
+    </SoundProvider>
   );
 }
